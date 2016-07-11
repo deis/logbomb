@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: deis-logbomb
+  namespace: deis
+  labels:
+    heritage: deis
+spec:
+  replicas: 10
+  selector:
+    app: deis-logbomb
+  template:
+    metadata:
+      labels:
+        app: deis-logbomb
+    spec:
+      containers:
+      - name: deis-logbomb
+        image: # This is set by the update-manifests make target
+        imagePullPolicy: Always
+        env:
+        - name: GO_ROUTINES
+          value: "100"
+        - name: MESSAGES_PER_GO_ROUTINE
+          value: "100"
+        - name: LOG_WRITER_TYPE
+          value: "nsq"
