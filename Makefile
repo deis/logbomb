@@ -105,17 +105,17 @@ test-unit: start-test-nsq
 	make stop-test-nsq
 
 kube-install:
-	kubectl create -f manifests/deis-logbomb-rc.yaml
+	kubectl create -f manifests/deis-logbomb-job.yaml
 
 kube-delete:
-	kubectl delete -f manifests/deis-logbomb-rc.tmp.yaml
+	kubectl delete -f manifests/deis-logbomb-job.tmp.yaml
 
 kube-create: update-manifests
-	kubectl create -f manifests/deis-logbomb-rc.tmp.yaml
+	kubectl create -f manifests/deis-logbomb-job.tmp.yaml
 
 kube-replace: build push update-manifests
-	kubectl replace --force -f manifests/deis-logbomb-rc.tmp.yaml
+	kubectl replace --force -f manifests/deis-logbomb-job.tmp.yaml
 
 kube-update: update-manifests
-	kubectl delete -f manifests/deis-logbomb-rc.tmp.yaml
-	kubectl create -f manifests/deis-logbomb-rc.tmp.yaml
+	kubectl delete -f manifests/deis-logbomb-job.tmp.yaml
+	kubectl create -f manifests/deis-logbomb-job.tmp.yaml
