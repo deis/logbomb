@@ -72,7 +72,7 @@ clean: check-docker
 	docker rmi $(IMAGE)
 
 update-manifests:
-	sed 's#\(image:\) .*#\1 $(IMAGE)#' manifests/deis-logbomb-rc.yaml > manifests/deis-logbomb-rc.tmp.yaml
+	sed 's#\(image:\) .*#\1 $(IMAGE)#' manifests/deis-logbomb-job.yaml > manifests/deis-logbomb-job.tmp.yaml
 
 test: test-style test-unit
 
