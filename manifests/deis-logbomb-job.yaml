@@ -22,5 +22,9 @@ spec:
           value: "100"
         - name: MESSAGES_PER_GO_ROUTINE
           value: "100"
+        - name: MIN_MESSAGE_WORDS
+          value: "5"
+        - name: MAX_MESSAGE_WORDS
+          value: "50"
         - name: LOG_WRITER_TYPE
           value: "nsq"

@@ -2,3 +2,4 @@ package: github.com/deis/logbomb
 import:
 - package: github.com/kelseyhightower/envconfig
 - package: github.com/nsqio/go-nsq
+- package: github.com/drhodes/golorem

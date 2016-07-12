@@ -40,7 +40,7 @@ func (lb *LogBomb) Detonate() error {
 		go func() {
 			defer wg.Done()
 			for j := 0; j < lb.config.MessagesPerGoRoutine; j++ {
-				if err := lb.logWriter.write(); err != nil {
+				if err := lb.logWriter.write(lb.getMessage()); err != nil {
 					log.Printf("Error writing log message: %s", err)
 					log.Fatal("Shutting down. This is to avoid inadvertently producing MORE log messages while NSQ is already not responsing.")
 				}

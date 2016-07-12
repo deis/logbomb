@@ -56,7 +56,7 @@ type mockLogWriter struct {
 	mutex   sync.Mutex
 }
 
-func (lw *mockLogWriter) write() error {
+func (lw *mockLogWriter) write(message string) error {
 	lw.mutex.Lock()
 	defer lw.mutex.Unlock()
 	lw.written = true
