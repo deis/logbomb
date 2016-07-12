@@ -12,6 +12,8 @@ type config struct {
 	GoRoutines           int    `envconfig:"GO_ROUTINES" default:"100"`
 	MessagesPerGoRoutine int    `envconfig:"MESSAGES_PER_GO_ROUTINE" default:"100"`
 	LogWriterType        string `envconfig:"LOG_WRITER_TYPE" default:"nsq"`
+	MinMessageWords      int    `envconfig:"MIN_MESSAGE_WORDS" default:"5"`
+	MaxMessageWords      int    `envconfig:"MAX_MESSAGE_WORDS" default:"50"`
 }
 
 func parseConfig() (*config, error) {

@@ -1,5 +1,5 @@
 package logbomb
 
 type logWriter interface {
-	write() error
+	write(message string) error
 }

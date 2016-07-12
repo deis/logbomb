@@ -1,6 +1,8 @@
-hash: adc294090d454fb1150dcaca38937f893d7f31340b0fa8f7256cd6151f35521b
-updated: 2016-07-11T17:21:50.160935526Z
+hash: 0902c91cf1b4eeac44f970510cd24a4f1e7030eda8c9e1a39d56e02331fc879d
+updated: 2016-07-12T18:08:35.980751356Z
 imports:
+- name: github.com/drhodes/golorem
+  version: ecccc744c2d953a1e13cbe5e5fc5d4cbc9b8daeb
 - name: github.com/kelseyhightower/envconfig
   version: 91921eb4cf999321cdbeebdba5a03555800d493b
 - name: github.com/mreiferson/go-snappystream

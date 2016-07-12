@@ -4,7 +4,6 @@ package logbomb
 
 import (
 	"fmt"
-	"reflect"
 	"testing"
 	"time"
 
@@ -12,6 +11,7 @@ import (
 )
 
 func TestWrite(t *testing.T) {
+	message := "foobar"
 	lw, err := newNSQLogWriter()
 	if err != nil {
 		t.Fatal(err)
@@ -27,7 +27,7 @@ func TestWrite(t *testing.T) {
 	}
 	foundCh := make(chan bool, 1)
 	consumer.AddHandler(nsq.HandlerFunc(func(msg *nsq.Message) error {
-		if reflect.DeepEqual(msg.Body, message) {
+		if string(msg.Body) == message {
 			fmt.Println(msg.Body)
 			foundCh <- true
 		}
@@ -36,7 +36,7 @@ func TestWrite(t *testing.T) {
 	if err := consumer.ConnectToNSQD(fmt.Sprintf("%s:%d", nlw.config.Host, nlw.config.Port)); err != nil {
 		t.Fatal(err)
 	}
-	err = nlw.write()
+	err = nlw.write(message)
 	if err != nil {
 		t.Fatal(err)
 	}

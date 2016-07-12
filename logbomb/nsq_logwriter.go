@@ -27,8 +27,8 @@ func newNSQLogWriter() (logWriter, error) {
 	}, nil
 }
 
-func (lw *nsqLogWriter) write() error {
-	if err := lw.producer.Publish(lw.config.Topic, message); err != nil {
+func (lw *nsqLogWriter) write(message string) error {
+	if err := lw.producer.Publish(lw.config.Topic, []byte(message)); err != nil {
 		return err
 	}
 	return nil
