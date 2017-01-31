@@ -1,4 +1,4 @@
-FROM quay.io/deis/base:v0.3.4
+FROM quay.io/deis/base:v0.3.6
 
 # Add logbomb user and group
 RUN adduser --system \
